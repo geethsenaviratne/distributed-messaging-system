@@ -1,0 +1,4 @@
+com\ds\messaging\BasicTest.class
+com\ds\messaging\ConsensusPerformanceTest$MessageStats.class
+com\ds\messaging\ConsensusPerformanceTest$TestResults.class
+com\ds\messaging\ConsensusPerformanceTest.class

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Console appender configured for performance testing -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- File appender for detailed logs -->
+    <appender name="PERFORMANCE_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/performance-test.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- Raft debugging specific appender -->
+    <appender name="RAFT_DEBUG_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/raft-election-debug.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- New RPC tracing specific appender -->
+    <appender name="RPC_TRACE_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/rpc-trace.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- Reduced logging for performance testing -->
+    <logger name="com.ds.messaging" level="INFO" />
+    
+    <!-- Enhanced logging for consensus modules -->
+    <logger name="com.ds.messaging.consensus" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="RAFT_DEBUG_FILE" />
+    </logger>
+    
+    <!-- Specific logger for RaftNode to capture all election details -->
+    <logger name="com.ds.messaging.consensus.RaftNode" level="TRACE" additivity="false">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="RAFT_DEBUG_FILE" />
+        <appender-ref ref="RPC_TRACE_FILE" />
+    </logger>
+    
+    <!-- New logger for RPC tracing -->
+    <logger name="com.ds.messaging.consensus.RaftMessageAdapter" level="TRACE" additivity="false">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="RPC_TRACE_FILE" />
+    </logger>
+    
+    <logger name="com.ds.messaging.server" level="INFO" />
+    <logger name="com.ds.messaging.client" level="WARN" />
+    
+    <!-- Performance test gets full INFO logging -->
+    <logger name="com.ds.messaging.ConsensusPerformanceTest" level="INFO" />
+    
+    <root level="WARN">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="PERFORMANCE_FILE" />
+    </root>
+</configuration> 
