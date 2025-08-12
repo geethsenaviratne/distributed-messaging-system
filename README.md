@@ -4,13 +4,13 @@ A high-performance, fault-tolerant distributed messaging system implemented in J
 
 ## Team Members
 
-Member 1 - Perera B S K J - it23223394 -it23223394@my.sliit.lk
+Member 1 - Perera B S K J - IT23223394 - it23223394@my.sliit.lk
 
-Member 2 - Hirunima H K G L - it23194380 - it23194380@my.sliit.lk
+Member 2 - Hirunima H K G L - IT23194380 - it23194380@my.sliit.lk
 
-Member 3 - Seneviratne D M D G B - it23226128 - it23226128@my.sliit.lk
+Member 3 - Seneviratne D M D G B - IT23226128 - it23226128@my.sliit.lk
 
-Member 4 - Linash M V M - it23442566 -it23442566@my.sliit.lk
+Member 4 - Linash M V M - it23442566 - IT23442566@my.sliit.lk
 
 ## Overview
 
